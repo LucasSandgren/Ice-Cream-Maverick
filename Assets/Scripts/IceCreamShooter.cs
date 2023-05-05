@@ -32,7 +32,9 @@ public class IceCreamShooter : MonoBehaviour
     public GameObject iceCream_Four;
     public GameObject iceCream_Five;
     public GameObject iceCream_Six;
-    
+    public GameObject iceCream_Seven;
+
+
 
     /* Count destroyed (when passing border) */
     public int iceCreamDestroyed;
@@ -100,13 +102,13 @@ public class IceCreamShooter : MonoBehaviour
         activeScene = SceneManager.GetActiveScene();
         Cursor.visible = false; // Hide the cursor
         StartCoroutine(LoadNextSceneWithDelay());
-        StartCoroutine(ShootIceCream());
+        
         
     }
     private IEnumerator LoadNextSceneWithDelay()
     {
-        yield return new WaitForSeconds(0.5f);
-        
+        yield return new WaitForSeconds(1f);
+        StartCoroutine(ShootIceCream());
     }
     IEnumerator ShootIceCream()
     {   
@@ -180,6 +182,22 @@ public class IceCreamShooter : MonoBehaviour
                 GameObject goldIceCream = Instantiate(iceCream_Three, spawnPosition, Quaternion.identity);
                 Rigidbody2D gold_IceCream = goldIceCream.GetComponent<Rigidbody2D>();
                 gold_IceCream.AddForce(Vector2.up * iceCreamSpeed, ForceMode2D.Impulse);
+            }
+
+            /* 5% chance to launch red -50 points iceCream */
+            if (Random.value < 0.05f)
+            {
+                int redIceCreamIndex = Random.Range(0, iceCones.Count);
+                Vector3 spawnPosition = iceCones[redIceCreamIndex].transform.position;
+                while (spawnedPositions.Contains(spawnPosition))
+                {
+                    spawnPosition += Vector3.up * 1f; // Offset the position slightly
+                }
+                spawnedPositions.Add(spawnPosition);
+
+                GameObject redIceCream = Instantiate(iceCream_Seven, spawnPosition, Quaternion.identity);
+                Rigidbody2D red_IceCream = redIceCream.GetComponent<Rigidbody2D>();
+               red_IceCream.AddForce(Vector2.up * iceCreamSpeed, ForceMode2D.Impulse);
             }
 
             yield return new WaitForSeconds(iceCreamCooldown);

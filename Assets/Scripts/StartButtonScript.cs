@@ -7,12 +7,16 @@ public class StartButtonScript : MonoBehaviour
 {
     public AudioClip buttonClickOk;
     public LogicScript logic;
-
-    public void goToNextScene()
+    
+  
+     public void startGame()
     {
+        Debug.Log("WHATS HAPPENING");
         AudioSource buttonClickOk = GetComponent<AudioSource>();
         buttonClickOk.Play();
-        StartCoroutine(LoadNextSceneWithDelay());
+        SceneManager.LoadScene("Level One");
+        Time.timeScale = 1.0f;
+        // StartCoroutine(LoadNextSceneWithDelay()); // ADD DELAY BEFORE GAME START WHEN CLICKING START, NOT NEEDED
     }
 
     private IEnumerator LoadNextSceneWithDelay()
@@ -20,5 +24,5 @@ public class StartButtonScript : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         SceneManager.LoadScene("Level One");
         Time.timeScale = 1.0f;
-    }
+    } 
 }

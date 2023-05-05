@@ -31,6 +31,7 @@ public class PlayerModelScript : MonoBehaviour
     public AudioSource shieldSound;
     public AudioSource slowIceCream;
     public AudioSource bonusIceCream;
+    public AudioSource minusIceCream;
 
     /* Variables for movement -->  THIS IS FOR WASD MOVEMENT WITH INPUT SYSTEM
     public float walkSpeed = 5f;
@@ -63,6 +64,7 @@ public class PlayerModelScript : MonoBehaviour
         AudioSource playerModelOnHit = GetComponent<AudioSource>();
         AudioSource slowIceCream = GetComponent<AudioSource>();
         AudioSource bonusIceCream = GetComponent<AudioSource>();
+        AudioSource minusIceCream = GetComponent<AudioSource>();
         
         
         healthText.text = "3";
@@ -89,7 +91,14 @@ public class PlayerModelScript : MonoBehaviour
         transform.position = clampedPosition;
     }
     void OnCollisionEnter2D(Collision2D collision)
-    {   
+    {
+        if (collision.gameObject.CompareTag("minusPoints"))
+        {
+            minusIceCream.Play();
+            logic.addScore(-25);
+            Destroy(collision.gameObject);  
+        }
+
         if (collision.gameObject.CompareTag("BonusPoints"))
         {
             bonusIceCream.Play();

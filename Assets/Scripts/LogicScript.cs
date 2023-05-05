@@ -90,6 +90,7 @@ public class LogicScript : MonoBehaviour
     {
         SceneManager.LoadScene("Start Screen");
         Cursor.visible = true;
+        
     }
 } 
 

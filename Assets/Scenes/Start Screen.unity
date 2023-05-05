@@ -211,7 +211,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 7457198}
         m_TargetAssemblyTypeName: StartButtonScript, Assembly-CSharp
-        m_MethodName: goToNextScene
+        m_MethodName: startGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -272,6 +272,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonClickOk: {fileID: 0}
+  logic: {fileID: 0}
 --- !u!82 &7457199
 AudioSource:
   m_ObjectHideFlags: 0

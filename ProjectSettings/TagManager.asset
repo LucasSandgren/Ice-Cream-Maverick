@@ -12,6 +12,7 @@ TagManager:
   - powerUpShield
   - Spawner
   - BonusPoints
+  - minusPoints
   layers:
   - Default
   - TransparentFX

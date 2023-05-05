@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 7460897359745190340}
   - component: {fileID: 7131663739850808903}
   m_Layer: 0
-  m_Name: slowIceCream
-  m_TagString: powerUps
+  m_Name: IceCream7
+  m_TagString: minusPoints
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 105a3837eddfe204bb184de9646109a3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 795a478ae16e8d34a8b5c1e7586c91e6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
